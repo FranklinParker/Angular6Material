@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <div fxShow.gt-sm="false" >
+    <button mat-icon-button
+            (click)="onToggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div>
+    <h4 *ngIf="authService.isLoggedIn$ | async">Welcome to Chestnut St - {{(authService.user$ |async).email}}</h4>
+    <h4 *ngIf="authService.isLoggedOut$| async">Chestnut St</h4>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxShow.gt-sm="true"
+       fxShow="false">
+    <ul fxLayout fxLayoutGap="10px" class="navigation-list-items">
+      <li><a routerLink="/registration" *ngIf="authService.isLoggedOut$ | async" >Signup</a></li>
+      <li> <a routerLink="/login" *ngIf="authService.isLoggedOut$ | async">Login</a></li>
+      <li *ngIf="authService.isLoggedIn$ | async"><a  (click)="logout()">Logout</a> </li>
+    </ul>
+  </div>
+</mat-toolbar>
