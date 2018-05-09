@@ -1,0 +1,25 @@
+.card-header,.card-body, .card{
+  border: solid 1px lightgray;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.card-header {
+  background-color: black ;
+  color: white;
+}
+
+mat-error{
+  font-size: 20px;
+}
+
+mat-form-field{
+  margin-top: 15px;
+  width: 300px;
+}
+
+button {
+  margin-top: 15px;
+  margin-bottom: 10px;
+
+}

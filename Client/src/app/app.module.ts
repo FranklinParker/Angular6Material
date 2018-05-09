@@ -12,6 +12,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './core/components/home/home.component';
 import {UserModule} from "./user/user.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MaterialModule,
     HttpClientModule,
     FlexLayoutModule,
-    UserModule
+    UserModule,
+    NgbModule.forRoot()
   ],
   providers: [
     AuthService
