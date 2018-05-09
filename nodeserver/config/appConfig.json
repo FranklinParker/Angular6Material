@@ -1,5 +1,5 @@
 {
-    "mongooseDBUrl":"mongodb://localhost:27017/school_app",
-    "mongooseDBUrlWe":"user:password@serverurl.mlab.com:port/school_app"
+    "mongooseDBUrl":"mongodb://localhost:27017/chestnut_info",
+    "mongooseDBUrlWe":"user:password@serverurl.mlab.com:port/chestnut_info"
 
 }  
