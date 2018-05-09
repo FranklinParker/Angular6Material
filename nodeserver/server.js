@@ -7,9 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session')
 
 const databaseDb = require('./database/mongooseDb');
-
-var index = require('./routes/index');
-//var users = require('./routes/users');
+const user = require('./routes/users');
 const routeConfigurer = require('./routes/routes');
 
 
@@ -45,6 +43,7 @@ app.use(function (req, res, next) {
 
 routeConfigurer.configureUnprotectedRoutes(app);
 routeConfigurer.configureProtectedRoutes(app);
+app.use('/user', user);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

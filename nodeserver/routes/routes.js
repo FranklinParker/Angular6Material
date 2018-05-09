@@ -3,7 +3,7 @@ const contactViewController = require('../controller/contactViewController');
 
 function configureUnprotectedRoutes(app){
     app.get('/api/contacts', contactViewController.viewAllContacts);
-    app.use('/api/user', require('./users'));
+   // app.use('/user', require('./users'));
 
 }
 module.exports.configureUnprotectedRoutes = configureUnprotectedRoutes;

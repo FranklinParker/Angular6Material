@@ -4,6 +4,7 @@ import {shareReplay, filter, tap, map} from 'rxjs/operators';
 
 import {User} from "../model/User";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
 
 export const ANONYMOUS_USER: User = {
   id: undefined,
@@ -29,10 +30,19 @@ export class AuthService {
   }
 
   login(email: string, password: string){
-    this.subject.next({
-      id: email,
-      email: email
-    });
+
+    this.http.post( environment.url+ 'user/login',
+      {email, password}
+    )
+      .pipe(map( data=> data))
+      .subscribe((data)=>{
+        console.log('login got data', data);
+        this.subject.next({
+          id: email,
+          email: email
+        });
+      });
+
   }
 
   logout(){
