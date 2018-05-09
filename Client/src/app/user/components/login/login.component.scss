@@ -1,7 +1,12 @@
-.card-header,.card-body, .card{
+.card-header,.card-body{
   border: solid 1px lightgray;
   border-radius: 10px;
   width: 100%;
+}
+
+.card{
+  border: solid 1px darkblue;
+  border-radius: 10px;
 }
 
 .card-header {

@@ -28,8 +28,11 @@ export class AuthService {
 
   }
 
-  login(user: User){
-    this.subject.next(user);
+  login(email: string, password: string){
+    this.subject.next({
+      id: email,
+      email: email
+    });
   }
 
   logout(){

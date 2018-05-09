@@ -8,17 +8,13 @@ import {AuthService} from "../../../auth/service/auth.service";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  email: string;
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   onSubmit(loginForm: NgForm){
-    console.log('form ', loginForm.value);
-    this.authService.login({
-      id:'test',
-      email: loginForm.value['email']
-    });
+    this.authService.login(this.email, '');
   }
 }
