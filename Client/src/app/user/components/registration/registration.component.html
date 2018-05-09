@@ -1,3 +1,61 @@
-<p>
-  registration works!
-</p>
+<div class="container-fluid">
+  <mat-card >
+    <mat-card-header fxLayout="column"
+                     fxLayoutAlign="center center" >
+      <h4 class="text-center">Please Login</h4>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit(registrationForm)"
+            #registrationForm="ngForm"
+            fxLayout="column"
+            fxLayoutAlign="center center"
+            fxLayoutGap="10px">
+        <mat-form-field>
+          <input matInput
+                 placeholder="Enter First  Name"
+                 name="firstName"
+                 type="text"
+                 #firstNameField="ngModel"
+                 [(ngModel)]="userRegistration.firstName"
+                 required>
+          <mat-error *ngIf="firstNameField.hasError('required')">First Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+                 placeholder="Enter Last  Name"
+                 name="lastName"
+                 type="text"
+                 #firstNameField="ngModel"
+                 [(ngModel)]="userRegistration.lastName"
+                 required>
+          <mat-error *ngIf="firstNameField.hasError('required')">Last Name is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+                 placeholder="Enter Email"
+                 name="email"
+                 type="email"
+                 #emailField="ngModel"
+                 [(ngModel)]="userRegistration.email"
+                 required>
+          <mat-error *ngIf="emailField.hasError('required')">Email is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput
+                 [(ngModel)]="userRegistration.password"
+                 name="password"
+                 placeholder="Your Password"
+                 type="password"
+                 #passwordField="ngModel"
+                 required>
+          <mat-error *ngIf="passwordField.hasError('required')">Password is required</mat-error>
+        </mat-form-field>
+        <button type="submit"
+                mat-raised-button
+                [disabled]="registrationForm.invalid">Submit
+          <mat-icon>forward</mat-icon>
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

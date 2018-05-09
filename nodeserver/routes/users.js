@@ -14,4 +14,15 @@ router.post('/login', function (req, res) {
     });
 });
 
+
+router.post('/register', function (req, res) {
+  const user = req.body;
+  console.log('user registered - user', user);
+
+  res.status(200).json({
+    success: true,
+    user: user
+  });
+});
+
 module.exports = router;

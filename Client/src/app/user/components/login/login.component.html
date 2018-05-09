@@ -22,13 +22,13 @@
           </mat-form-field>
           <mat-form-field>
             <input matInput
-                   ngModel
+                   [(ngModel)]="password"
                    name="password"
                    placeholder="Your Password"
                    type="password"
-                   #password="ngModel"
+                   #passwordField="ngModel"
                    required>
-            <mat-error *ngIf="password.hasError('required')">Password is required</mat-error>
+            <mat-error *ngIf="passwordField.hasError('required')">Password is required</mat-error>
           </mat-form-field>
           <button type="submit"
                   mat-raised-button
