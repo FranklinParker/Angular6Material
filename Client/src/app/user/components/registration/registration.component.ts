@@ -10,7 +10,7 @@ import {UserService} from "../../service/user.service";
 })
 export class RegistrationComponent implements OnInit {
   userRegistration: UserRegistration = {
-    id: '',
+    _id: '',
     email: '',
     password: '',
     cellPhone: '',
