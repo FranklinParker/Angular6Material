@@ -21,7 +21,7 @@ export class AuthService {
 
   user$: Observable<User> = this.subject.asObservable().pipe(filter(user => !!user));
 
-  isLoggedIn$: Observable<boolean> = this.user$.pipe(map(user => !!user.id));
+  isLoggedIn$: Observable<boolean> = this.user$.pipe(map(user => !!user._id));
 
   isLoggedOut$: Observable<boolean> = this.isLoggedIn$.pipe(map(isLoggedIn => !isLoggedIn));
 
@@ -35,12 +35,16 @@ export class AuthService {
       {email, password}
     )
       .pipe(map( data=> data))
-      .subscribe((data)=>{
-        console.log('login got data', data);
-        this.subject.next({
-          id: email,
-          email: email
-        });
+      .subscribe((response: {success:boolean, user?:User, message?:string})=>{
+        console.log('login got data', response);
+        if(response.success){
+          this.subject.next(response.user);
+
+        }else{
+          this.subject.next(ANONYMOUS_USER);
+        }
+
+
       });
 
   }
