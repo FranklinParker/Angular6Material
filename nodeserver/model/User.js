@@ -39,5 +39,29 @@ UserSchema.plugin(mongooseUniqueValidator);
 
 const User = mongoose.model('User', UserSchema);
 
+const findUserConfirmPassword = async (email, password) => {
+  return new Promise((resolve, reject) => {
+    User.findOne({email})
+      .then((user) => {
+          if (!user) {
+            reject('login failed user')
+          } else{
+            bcrypt.compare(password, user.password, (err, res) => {
+              console.log('res', res);
+              if (res) {
+                resolve(user);
+              } else {
+                reject('login failed');
+              }
+            });
+          }
+
+        }
+      );
+  });
+
+}
+
+module.exports.findUserConfirmPassword = findUserConfirmPassword;
 
 module.exports.User = User;

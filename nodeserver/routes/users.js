@@ -1,18 +1,27 @@
 var express = require('express');
 var router = express.Router();
 const User = require('../model/User').User;
+const findUserConfirmPassword = require('../model/User').findUserConfirmPassword;
 
 
-router.post('/login', function (req, res) {
+router.post('/login', async (req, res)=> {
     const user = req.body;
-    console.log('login - user', user);
-    console.log('Session: ' + JSON.stringify(req.session,null,2));
-
-    req.user = user;
-    res.status(200).json({
+    try{
+      const userRec = await findUserConfirmPassword(user.email,user.password);
+      console.log('userRec', userRec);
+      res.status(200).json({
         success: true,
-        user: user
-    });
+        user: userRec
+      });
+    }catch(e){
+      console.log('error', e);
+      res.status(401).json({
+        success: false,
+        message: e
+      });
+    }
+
+
 });
 
 

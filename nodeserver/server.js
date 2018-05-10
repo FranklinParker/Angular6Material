@@ -43,7 +43,7 @@ app.use(function (req, res, next) {
 
 routeConfigurer.configureUnprotectedRoutes(app);
 routeConfigurer.configureProtectedRoutes(app);
-app.use('/user', user);
+app.use('/user',  user);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
