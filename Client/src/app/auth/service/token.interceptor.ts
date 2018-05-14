@@ -26,13 +26,16 @@ export class TokenInterceptor implements HttpInterceptor {
     const token = this.auth.getToken();
     console.log('token:'+ token);
     if(token){
-      request = request.clone({
-        setHeaders: {
-          'x-auth': token
-        }
+      console.log('setting header token', token);
+      const authReq = request.clone({
+        headers: request.headers.set('x-auth',token)
       });
+      return next.handle(authReq);
+
+    }else{
+      return next.handle(request);
+
     }
 
-    return next.handle(request);
   }
 }

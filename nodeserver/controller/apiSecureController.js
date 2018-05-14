@@ -13,11 +13,19 @@ const config = require('../config/config');
  */
 function secureApiRoutes(req, response, next) {
   var decoded;
-  var token = req.header('x-auth');
+  console.log('secure api routes');
+  const token = req.header('x-auth');
+  console.log('header token', token);
+  if(!token){
+    console.log('Unauthorized');
+    return response.status(200).json({
+      accessNotAllowed: "Not allowed"
+    });
+  }
   try {
     decoded = jwt.verify(token, config.secret);
     console.log('decoded',decoded);
-    User.findById(decoded._id)
+    User.findOne({_id: decoded._id})
       .then((user)=> {
         console.log('user:',user);
         req.user = user;

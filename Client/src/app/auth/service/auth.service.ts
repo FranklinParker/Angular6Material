@@ -42,7 +42,7 @@ export class AuthService {
         if(response.success){
           this.subject.next(response.user);
           localStorage.setItem('token', response.token);
-          this.router.navigate(['/']);
+         // this.router.navigate(['/']);
 
         }else{
           this.subject.next(ANONYMOUS_USER);

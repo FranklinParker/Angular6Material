@@ -1,6 +1,6 @@
 const apiSecureController = require('../controller/apiSecureController');
 const contactViewController = require('../controller/contactViewController');
-const homePageDataController = require('../controller/homePageDataController');
+const home = require('./home');
 
 function configureUnprotectedRoutes(app){
     app.get('/api/contacts', contactViewController.viewAllContacts);
@@ -23,7 +23,7 @@ var allowDelete = function(req, res, next){
 
 configureProtectedRoutes = (app)=>{
     app.use('/api',allowDelete, apiSecureController.secureApiRoutes);
-    app.get('/api/homepage', homePageDataController.getHomePageMessages);
+    app.use('/api/home', home);
    // app.use('/api/admin/course',allowDelete, course );
 
 }
