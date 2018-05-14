@@ -7,7 +7,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 
 export const ANONYMOUS_USER: User = {
-  id: undefined,
+  _id: undefined,
   email: undefined,
   roles: []
 }
@@ -35,10 +35,11 @@ export class AuthService {
       {email, password}
     )
       .pipe(map( data=> data))
-      .subscribe((response: {success:boolean, user?:User, message?:string})=>{
+      .subscribe((response: {success:boolean, token?: string ,user?:User, message?:string})=>{
         console.log('login got data', response);
         if(response.success){
           this.subject.next(response.user);
+          localStorage.setItem('token', response.token);
 
         }else{
           this.subject.next(ANONYMOUS_USER);
@@ -51,6 +52,11 @@ export class AuthService {
 
   logout(){
     this.subject.next(ANONYMOUS_USER);
+  }
+
+  getToken(){
+    return localStorage.getItem('token');
+
   }
 
 }

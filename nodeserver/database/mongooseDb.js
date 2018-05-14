@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const config = require("../config/appConfig");
+const config = require("../config/config");
 
 console.log('db connection:', config);
 
@@ -8,7 +8,7 @@ function connectToDb() {
     var promiseLib =  global.Promise;
 
     mongoose.Promise = global.Promise;
-    var mongoDB = mongoose.connect(config.mongooseDBUrl, {
+    var mongoDB = mongoose.connect(config.dbUrl, {
         useMongoClient: true,
         promiseLibrary: promiseLib // Deprecation issue again
     });

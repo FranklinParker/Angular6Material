@@ -13,6 +13,7 @@ var allowDelete = function(req, res, next){
     next();
 }
 
+
 configureProtectedRoutes = (app)=>{
     app.use('/api',allowDelete, apiSecureController.secureApiRoutes);
    // app.use('/api/admin/course',allowDelete, course );

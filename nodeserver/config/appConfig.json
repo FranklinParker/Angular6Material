@@ -1,4 +1,6 @@
 {
+    "dbUrl": "mongodb://localhost:27017/chestnut_info",
+    "JWT_SECRET":"ghgghghgk676767",
     "mongooseDBUrl":"mongodb://localhost:27017/chestnut_info",
     "mongooseDBUrlWe":"user:password@serverurl.mlab.com:port/chestnut_info"
 

@@ -13,6 +13,9 @@ import { HomeComponent } from './core/components/home/home.component';
 import {UserModule} from "./user/user.module";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {TokenInterceptor} from "./auth/service/token.interceptor";
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -33,7 +36,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule.forRoot()
   ],
   providers: [
-    AuthService
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
