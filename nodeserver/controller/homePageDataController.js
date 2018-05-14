@@ -4,7 +4,6 @@
  */
 const getHomePageMessages = (req, res)=>
 {
-  console.log('getHomePageMessages');
   const messages = [
     {
       _id: '1',

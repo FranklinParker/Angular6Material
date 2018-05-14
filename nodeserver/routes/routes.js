@@ -1,9 +1,11 @@
 const apiSecureController = require('../controller/apiSecureController');
 const contactViewController = require('../controller/contactViewController');
+const getUserFromToken = require('../controller/getUserFromToken').getUserFromToken;
 const home = require('./home');
 
 function configureUnprotectedRoutes(app){
-    app.get('/api/contacts', contactViewController.viewAllContacts);
+  app.get('/api/getuser/fromtoken',getUserFromToken );
+  app.get('/api/contacts', contactViewController.viewAllContacts);
    // app.use('/user', require('./users'));
 
 }

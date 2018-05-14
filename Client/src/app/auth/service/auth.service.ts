@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable} from "rxjs";
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable} from "rxjs";
 import {shareReplay, filter, tap, map} from 'rxjs/operators';
 
 import {User} from "../model/User";
@@ -27,24 +27,35 @@ export class AuthService {
   isLoggedOut$: Observable<boolean> = this.isLoggedIn$.pipe(map(isLoggedIn => !isLoggedIn));
 
   constructor(private http: HttpClient,
-              private router: Router){
+              private router: Router) {
+    this.isLoggedOut$
+      .subscribe((isLoggedOut: boolean) => {
+        if (isLoggedOut && this.getToken()) {
+          this.getUserFromToken();
+        }
+      });
 
   }
 
-  login(email: string, password: string){
+  /**
+   * log in a user
+   *
+   * @param {string} email
+   * @param {string} password
+   */
+  login(email: string, password: string) {
 
-    this.http.post( environment.url+ 'user/login',
+    this.http.post(environment.url + 'user/login',
       {email, password}
     )
-      .pipe(map( data=> data))
-      .subscribe((response: {success:boolean, token?: string ,user?:User, message?:string})=>{
-        console.log('login got data', response);
-        if(response.success){
+      .pipe(map(data => data))
+      .subscribe((response: { success: boolean, token?: string, user?: User, message?: string }) => {
+        if (response.success) {
           this.subject.next(response.user);
           localStorage.setItem('token', response.token);
-         // this.router.navigate(['/']);
+          this.router.navigate(['/']);
 
-        }else{
+        } else {
           this.subject.next(ANONYMOUS_USER);
         }
 
@@ -53,16 +64,26 @@ export class AuthService {
 
   }
 
-  logout(){
+  logout() {
     localStorage.clear();
     this.subject.next(ANONYMOUS_USER);
     this.router.navigate(['/login']);
 
   }
 
-  getToken(){
+  getToken() {
     return localStorage.getItem('token');
 
+  }
+
+  private getUserFromToken() {
+    this.http.get(environment.url + 'api/getuser/fromtoken')
+      .subscribe((result: { success: boolean, user?: User }) => {
+        if (result.success) {
+          this.subject.next(result.user);
+          this.router.navigate(['/']);
+        }
+      })
   }
 
 }

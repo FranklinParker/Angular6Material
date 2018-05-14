@@ -3,13 +3,13 @@ const User = require('../model/User').User;
 const config = require('../config/config');
 
 /**
- * secure api routes, insure a token exists before
+ * try to load user from token
  *
  * @param req
  * @param response
  * @param next
  */
-function secureApiRoutes(req, response, next) {
+const getUserFromToken = (req, response, next) => {
   var decoded;
   const token = req.header('x-auth');
   if (!token) {
@@ -20,22 +20,26 @@ function secureApiRoutes(req, response, next) {
   try {
     decoded = jwt.verify(token, config.secret);
     User.findOne({_id: decoded._id}, (err, user) => {
-      if (err) {
-        response.status(401).json({
-          accessNotAllowed: "Not allowed"
+      if (err || !user) {
+        response.status(200).json({
+          success:false,
+          message: 'no user found'
         });
       } else {
-        req.user = user;
-        next();
+        response.status(200).json({
+          success:true,
+          user: user
+        });
       }
     });
   } catch (e) {
     console.log('e', e);
-    response.status(401).json({
-      accessNotAllowed: "Not allowed"
+    response.status(200).json({
+      success:false,
+      message: 'no user found'
     });
   }
 
 }
 
-module.exports.secureApiRoutes = secureApiRoutes;
+module.exports.getUserFromToken = getUserFromToken;
