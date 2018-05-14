@@ -7,7 +7,7 @@ const Contact = require('../model/Contacts');
  * @param req
  * @param response
  */
-viewAllContacts = (req, response)=> {
+const viewAllContacts = (req, response)=> {
   Contact.find()
     .exec(function (error, contacts) {
       if (error) {
