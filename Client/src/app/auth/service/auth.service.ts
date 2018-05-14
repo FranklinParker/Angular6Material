@@ -5,6 +5,7 @@ import {shareReplay, filter, tap, map} from 'rxjs/operators';
 import {User} from "../model/User";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
+import {Router} from "@angular/router";
 
 export const ANONYMOUS_USER: User = {
   _id: undefined,
@@ -25,7 +26,8 @@ export class AuthService {
 
   isLoggedOut$: Observable<boolean> = this.isLoggedIn$.pipe(map(isLoggedIn => !isLoggedIn));
 
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient,
+              private router: Router){
 
   }
 
@@ -40,6 +42,7 @@ export class AuthService {
         if(response.success){
           this.subject.next(response.user);
           localStorage.setItem('token', response.token);
+          this.router.navigate(['/']);
 
         }else{
           this.subject.next(ANONYMOUS_USER);
@@ -51,7 +54,10 @@ export class AuthService {
   }
 
   logout(){
+    localStorage.clear();
     this.subject.next(ANONYMOUS_USER);
+    this.router.navigate(['/login']);
+
   }
 
   getToken(){

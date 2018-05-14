@@ -2,6 +2,7 @@
 const isLoggedIn = true;
 const jwt = require('jsonwebtoken');
 const User = require('../model/User');
+const config = require('../config/config');
 
 /**
  * secure api routes
@@ -14,8 +15,8 @@ function secureApiRoutes(req, response, next) {
   var decoded;
   var token = req.header('x-auth');
   try {
-    decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log('decoded')
+    decoded = jwt.verify(token, config.secret);
+    console.log('decoded',decoded);
     User.findById(decoded._id)
       .then((user)=> {
         console.log('user:',user);
