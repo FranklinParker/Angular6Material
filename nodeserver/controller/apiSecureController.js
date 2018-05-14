@@ -1,7 +1,6 @@
-
 const isLoggedIn = true;
 const jwt = require('jsonwebtoken');
-const User = require('../model/User');
+const User = require('../model/User').User;
 const config = require('../config/config');
 
 /**
@@ -16,7 +15,7 @@ function secureApiRoutes(req, response, next) {
   console.log('secure api routes');
   const token = req.header('x-auth');
   console.log('header token', token);
-  if(!token){
+  if (!token) {
     console.log('Unauthorized');
     return response.status(200).json({
       accessNotAllowed: "Not allowed"
@@ -24,30 +23,28 @@ function secureApiRoutes(req, response, next) {
   }
   try {
     decoded = jwt.verify(token, config.secret);
-    console.log('decoded',decoded);
-    User.findOne({_id: decoded._id})
-      .then((user)=> {
-        console.log('user:',user);
-        req.user = user;
-        next();
-      },(err)=>{
+    console.log('decoded', decoded);
+    User.findOne({_id: decoded._id}, (err, user) => {
+      if (err) {
         console.log('Unauthorized');
         response.status(200).json({
           accessNotAllowed: "Not allowed"
         });
-      });
+      } else {
+        console.log('user:', user);
+        req.user = user;
+        next();
+      }
+    });
 
 
   } catch (e) {
+    console.log('e', e);
     response.status(200).json({
       accessNotAllowed: "Not allowed"
     });
   }
-  if (isLoggedIn) {
-    next();
-  } else {
 
-  }
 }
 
 module.exports.secureApiRoutes = secureApiRoutes;
