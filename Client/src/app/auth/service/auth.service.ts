@@ -28,16 +28,10 @@ export class AuthService {
 
   constructor(private http: HttpClient,
               private router: Router) {
-    this.isLoggedOut$
-      .pipe(take(1))
-      .subscribe((isLoggedOut: boolean) => {
-        console.log("got logged ");
-        if (isLoggedOut && this.getToken()) {
-          this.getUserFromToken();
-        }
-      });
+
 
   }
+
 
   /**
    * log in a user
@@ -50,7 +44,7 @@ export class AuthService {
     this.http.post(environment.url + 'user/login',
       {email, password}
     )
-      .pipe(map(data => data))
+      .pipe(shareReplay(),take(1),map(data => data))
       .subscribe((response: { success: boolean, token?: string, user?: User, message?: string }) => {
         if (response.success) {
           this.subject.next(response.user);
@@ -78,8 +72,20 @@ export class AuthService {
 
   }
 
-  private getUserFromToken() {
+  /**
+   *
+   *
+   */
+  getUserFromToken() {
+    if(!this.getToken()){
+      return;
+    }
+
     this.http.get(environment.url + 'api/getuser/fromtoken')
+      .pipe( take(1),
+        map((result)=>{
+          return result;
+        }))
       .subscribe((result: { success: boolean, user?: User }) => {
         if (result.success) {
           console.log('user', result.user);
