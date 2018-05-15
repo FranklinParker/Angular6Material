@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
-import {shareReplay, filter, tap, map} from 'rxjs/operators';
+import {shareReplay, filter, tap, map, take} from 'rxjs/operators';
 
 import {User} from "../model/User";
 import {HttpClient} from "@angular/common/http";
@@ -29,7 +29,9 @@ export class AuthService {
   constructor(private http: HttpClient,
               private router: Router) {
     this.isLoggedOut$
+      .pipe(take(1))
       .subscribe((isLoggedOut: boolean) => {
+        console.log("got logged ");
         if (isLoggedOut && this.getToken()) {
           this.getUserFromToken();
         }
@@ -80,6 +82,7 @@ export class AuthService {
     this.http.get(environment.url + 'api/getuser/fromtoken')
       .subscribe((result: { success: boolean, user?: User }) => {
         if (result.success) {
+          console.log('user', result.user);
           this.subject.next(result.user);
           this.router.navigate(['/']);
         }
