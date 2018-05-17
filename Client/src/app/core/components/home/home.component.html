@@ -1,7 +1,16 @@
-<div class="container-fluid ">
-  <div class="row" >
-    <div class="col">
-      <h1>Home</h1>
-    </div>
-  </div>
+<div class="container-fluid">
+  <mat-card>
+    <mat-card-content fxLayout="column"
+                      fxLayoutAlign="center center">
+      <ngb-carousel >
+        <ng-template ngbSlide>
+          <img src="../../assets/angular.jpeg" alt="Random first slide">
+          <div class="carousel-caption">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </mat-card-content>
+  </mat-card>
 </div>
