@@ -13,7 +13,13 @@
     <mat-icon>lock_open</mat-icon>
     <span class="nav-caption">Login</span>
   </a>
-
+  <a mat-list-item
+     routerLink="/contacts"
+     *ngIf="authService.isLoggedIn$ | async"
+     (click)="onSidenavClose()">
+    <mat-icon>contacts</mat-icon>
+    <span class="nav-caption">Contacts</span>
+  </a>
   <mat-list-item>
     <button mat-icon-button
             *ngIf="authService.isLoggedIn$ | async"

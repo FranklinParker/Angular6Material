@@ -15,6 +15,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {TokenInterceptor} from "./auth/service/token.interceptor";
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import {ContactsModule} from "./contacts/contacts.module";
 
 
 
@@ -33,7 +34,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     HttpClientModule,
     FlexLayoutModule,
     UserModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    ContactsModule
   ],
   providers: [
     AuthService,
