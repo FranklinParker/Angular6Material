@@ -1,0 +1,70 @@
+<mat-card >
+  <mat-card-header fxLayout="column"
+                   fxLayoutAlign="center center" >
+    <h4 class="text-center">Add Contact</h4>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit(contactForm)"
+          #contactForm="ngForm"
+          fxLayout="column"
+          fxLayoutAlign="center center"
+          fxLayoutGap="10px">
+      <mat-form-field>
+        <input matInput
+               placeholder="Enter First  Name"
+               name="firstName"
+               type="text"
+               #firstNameField="ngModel"
+               [(ngModel)]="contact.firstName"
+               required>
+        <mat-error *ngIf="firstNameField.hasError('required')">First Name is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput
+               placeholder="Enter Last  Name"
+               name="lastName"
+               type="text"
+               #firstNameField="ngModel"
+               [(ngModel)]="contact.lastName"
+               required>
+        <mat-error *ngIf="firstNameField.hasError('required')">Last Name is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput
+               placeholder="Enter Email"
+               name="email"
+               type="email"
+               #emailField="ngModel"
+               [(ngModel)]="contact.email"
+               required>
+        <mat-error *ngIf="emailField.hasError('required')">Email is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput
+               placeholder="Enter Phone"
+               name="phone"
+               type="text"
+               #phoneField="ngModel"
+               [(ngModel)]="contact.phone"
+               required>
+        <mat-error *ngIf="phoneField.hasError('required')">Phone is required</mat-error>
+      </mat-form-field>
+      <mat-form-field >
+        <textarea matInput
+                  placeholder="Enter Contact Description"
+                  name="description"
+                  [(ngModel)]="contact.description"
+                  #descriptionField="ngModel"
+                  required>
+        </textarea>
+        <mat-error *ngIf="descriptionField.hasError('required')">
+          Description is required</mat-error>
+      </mat-form-field>
+      <button type="submit"
+              mat-raised-button
+              [disabled]="contactForm.invalid">Submit
+        <mat-icon>forward</mat-icon>
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

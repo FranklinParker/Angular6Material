@@ -8,14 +8,7 @@
         Enter Contact Info
       </mat-panel-description>
     </mat-expansion-panel-header>
-
-    <mat-form-field>
-      <input matInput placeholder="First name">
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="Age">
-    </mat-form-field>
+    <app-conact-add></app-conact-add>
   </mat-expansion-panel>
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
