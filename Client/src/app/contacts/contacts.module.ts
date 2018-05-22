@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactMainComponent } from './components/contact-main/contact-main.component';
 import {SharedModule} from "../shared/shared.module";
-import { ConactAddComponent } from './components/conact-add/conact-add.component';
+import { ContactAddComponent } from './components/contact-add/contact-add.component';
 
 @NgModule({
   imports: [
@@ -11,7 +11,7 @@ import { ConactAddComponent } from './components/conact-add/conact-add.component
   ],
   declarations: [
     ContactMainComponent,
-    ConactAddComponent
+    ContactAddComponent
   ],
   exports: [
     ContactMainComponent

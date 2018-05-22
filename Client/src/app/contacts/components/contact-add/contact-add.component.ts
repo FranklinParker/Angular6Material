@@ -4,10 +4,10 @@ import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-conact-add',
-  templateUrl: './conact-add.component.html',
-  styleUrls: ['./conact-add.component.scss']
+  templateUrl: './contact-add.component.html',
+  styleUrls: ['./contact-add.component.scss']
 })
-export class ConactAddComponent implements OnInit {
+export class ContactAddComponent implements OnInit {
 
   contact: Contact ={
     firstName: '',
@@ -15,7 +15,6 @@ export class ConactAddComponent implements OnInit {
     email: '',
     phone: '',
     description: '',
-
 
   }
   constructor() { }
