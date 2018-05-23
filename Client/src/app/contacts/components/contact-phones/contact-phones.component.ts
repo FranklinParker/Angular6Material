@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {MatTableDataSource} from "@angular/material";
 import {Phone} from "../../models/phone";
+import {Contact} from "../../models/contact";
 
 @Component({
   selector: 'app-contact-phones',
@@ -8,7 +9,8 @@ import {Phone} from "../../models/phone";
   styleUrls: ['./contact-phones.component.scss']
 })
 export class ContactPhonesComponent implements OnInit {
-  dataSource = new MatTableDataSource<Phone>(phones);
+  @Input('contact') contact:Contact;
+  dataSource = new MatTableDataSource<Phone>(null);
 
   displayedColumns = ['number', 'type', 'primary'];
 
@@ -16,6 +18,7 @@ export class ContactPhonesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dataSource.data = this.contact.phones;
   }
 
 }

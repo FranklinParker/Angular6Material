@@ -14,9 +14,19 @@ export class ContactAddComponent implements OnInit {
     lastName: '',
     email: '',
     description: '',
-
-
-  }
+    phones: [
+      {
+        number: '777 661-100',
+        type: 'Cell',
+        primary: true
+      },
+      {
+        number: '888 662-8000',
+        type: 'Home',
+        primary: false
+      }
+    ]
+  };
   constructor() { }
 
   ngOnInit() {
