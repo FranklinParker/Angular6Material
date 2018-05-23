@@ -25,12 +25,12 @@
       <ng-container matColumnDef="type">
         <mat-header-cell *matHeaderCellDef style="text-align:left"> Type</mat-header-cell>
         <mat-cell *matCellDef="let element" style="text-align:left">
-          <input matInput
-                 placeholder="Enter Type of Phone"
-                 name="type"
-                 type="text"
-                 [(ngModel)]="element.type"
-                 required>
+          <mat-select placeholder="Type Of Phone"
+                      [(ngModel)]="element.type"
+                      name="type">
+            <mat-option value="Home">Home</mat-option>
+            <mat-option value="Cell">Cell</mat-option>
+          </mat-select>
         </mat-cell>
       </ng-container>
 

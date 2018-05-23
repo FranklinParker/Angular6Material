@@ -21,6 +21,6 @@ export class ContactPhonesComponent implements OnInit {
 
 const phones: Phone[] = [{
   number: '777 661-100',
-  type: 'Home',
+  type: 'Cell',
   primary: false
 }];
