@@ -33,7 +33,15 @@
           </mat-select>
         </mat-cell>
       </ng-container>
+      <ng-container matColumnDef="primary">
+        <mat-header-cell *matHeaderCellDef style="text-align:left">
+          Primary Phone</mat-header-cell>
+        <mat-cell *matCellDef="let element" style="text-align:left">
+          <mat-checkbox [(ngModel)]="element.primary">
+          </mat-checkbox>
 
+        </mat-cell>
+      </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;">

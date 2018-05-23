@@ -10,10 +10,11 @@ import {NgForm} from "@angular/forms";
 export class ContactAddComponent implements OnInit {
 
   contact: Contact ={
-    firstName: '',
+    firstName: 'Joe',
     lastName: '',
     email: '',
     description: '',
+
 
   }
   constructor() { }

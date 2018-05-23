@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from "@angular/material";
 import {Phone} from "../../models/phone";
 
@@ -10,9 +10,10 @@ import {Phone} from "../../models/phone";
 export class ContactPhonesComponent implements OnInit {
   dataSource = new MatTableDataSource<Phone>(phones);
 
-  displayedColumns = ['number','type'];
+  displayedColumns = ['number', 'type', 'primary'];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
@@ -22,5 +23,10 @@ export class ContactPhonesComponent implements OnInit {
 const phones: Phone[] = [{
   number: '777 661-100',
   type: 'Cell',
-  primary: false
-}];
+  primary: true
+},
+  {
+    number: '888 662-8000',
+    type: 'Home',
+    primary: false
+  }];
