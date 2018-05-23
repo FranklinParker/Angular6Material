@@ -1,3 +1,10 @@
-mat-cell, mat-header-row{
+mat-cell, mat-header-cell{
   padding: 10px;
+}
+
+
+mat-header-cell {
+  font-size: 14pt;
+  background-color: black;
+  color: white;
 }

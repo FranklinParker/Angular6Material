@@ -8,45 +8,62 @@
         Add Edit phones
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <mat-table #table [dataSource]="dataSource">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col mr-4">
+          <button type="button"
+                  mat-raised-button
+                  (click)="onAddPhone()">Add
+            <mat-icon>add_box</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-table #table [dataSource]="dataSource">
 
-      <ng-container matColumnDef="number">
-        <mat-header-cell *matHeaderCellDef style="text-align:left;padding-left: 20px">Phone Number</mat-header-cell>
-        <mat-cell *matCellDef="let element" style="text-align:left" >
-          <input matInput
-                 placeholder="Enter Phone"
-                 name="phone"
-                 type="text"
-                 [(ngModel)]="element.number"
-                 required>
-        </mat-cell>
-      </ng-container>
+            <ng-container matColumnDef="number">
+              <mat-header-cell *matHeaderCellDef style="text-align:left;padding-left: 20px">Phone Number
+              </mat-header-cell>
+              <mat-cell *matCellDef="let element" style="text-align:left">
+                <input matInput
+                       placeholder="Enter Phone"
+                       name="phone"
+                       type="text"
+                       [(ngModel)]="element.number"
+                       required>
+              </mat-cell>
+            </ng-container>
 
-      <ng-container matColumnDef="type">
-        <mat-header-cell *matHeaderCellDef style="text-align:left"> Type</mat-header-cell>
-        <mat-cell *matCellDef="let element" style="text-align:left">
-          <mat-select placeholder="Type Of Phone"
-                      [(ngModel)]="element.type"
-                      name="type">
-            <mat-option value="Home">Home</mat-option>
-            <mat-option value="Cell">Cell</mat-option>
-          </mat-select>
-        </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="primary">
-        <mat-header-cell *matHeaderCellDef style="text-align:left">
-          Primary Phone</mat-header-cell>
-        <mat-cell *matCellDef="let element" style="text-align:left">
-          <mat-checkbox [(ngModel)]="element.primary">
-          </mat-checkbox>
+            <ng-container matColumnDef="type">
+              <mat-header-cell *matHeaderCellDef style="text-align:left"> Type</mat-header-cell>
+              <mat-cell *matCellDef="let element" style="text-align:left">
+                <mat-select placeholder="Type Of Phone"
+                            [(ngModel)]="element.type"
+                            name="type">
+                  <mat-option value="Home">Home</mat-option>
+                  <mat-option value="Cell">Cell</mat-option>
+                </mat-select>
+              </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="primary">
+              <mat-header-cell *matHeaderCellDef style="text-align:left">
+                Primary Phone
+              </mat-header-cell>
+              <mat-cell *matCellDef="let element" style="text-align:left">
+                <mat-checkbox [(ngModel)]="element.primary">
+                </mat-checkbox>
 
-        </mat-cell>
-      </ng-container>
+              </mat-cell>
+            </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;">
-      </mat-row>
-    </mat-table>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;">
+            </mat-row>
+          </mat-table>
+        </div>
+      </div>
 
+    </div>
   </mat-expansion-panel>
 </mat-accordion>

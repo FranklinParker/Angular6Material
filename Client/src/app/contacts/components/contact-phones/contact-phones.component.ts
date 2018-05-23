@@ -20,6 +20,15 @@ export class ContactPhonesComponent implements OnInit {
   ngOnInit() {
     this.dataSource.data = this.contact.phones;
   }
+  onAddPhone(){
+    this.contact.phones.push({
+      number: '888 661-1000',
+      type: '',
+      primary: false
+    });
+    this.dataSource.data = this.contact.phones;
+
+  }
 
 }
 
