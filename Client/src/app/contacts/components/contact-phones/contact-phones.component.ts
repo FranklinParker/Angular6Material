@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatTableDataSource} from "@angular/material";
+import {Phone} from "../../models/phone";
 
 @Component({
   selector: 'app-contact-phones',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-phones.component.scss']
 })
 export class ContactPhonesComponent implements OnInit {
+  dataSource = new MatTableDataSource<Phone>(phones);
+
+  displayedColumns = ['number','type'];
 
   constructor() { }
 
@@ -13,3 +18,9 @@ export class ContactPhonesComponent implements OnInit {
   }
 
 }
+
+const phones: Phone[] = [{
+  number: '777 661-100',
+  type: 'Home',
+  primary: false
+}];

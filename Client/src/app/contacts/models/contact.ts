@@ -3,7 +3,11 @@ export interface Contact{
   firstName: string;
   lastName: string;
   email: string;
-  phone: string;
+  phones?: [{
+    type: string,
+    number: string;
+    primary: boolean;
+  }];
   description: string;
 
 }

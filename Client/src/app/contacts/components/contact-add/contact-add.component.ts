@@ -13,7 +13,6 @@ export class ContactAddComponent implements OnInit {
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
     description: '',
 
   }
