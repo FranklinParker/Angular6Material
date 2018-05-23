@@ -20,6 +20,10 @@ export class ContactPhonesComponent implements OnInit {
   ngOnInit() {
     this.dataSource.data = this.contact.phones;
   }
+
+  /**
+   * add a new phone
+   */
   onAddPhone(){
     this.contact.phones.push({
       number: '888 661-1000',
@@ -27,18 +31,17 @@ export class ContactPhonesComponent implements OnInit {
       primary: false
     });
     this.dataSource.data = this.contact.phones;
+  }
 
+  selectPrimary(phone:Phone){
+    if(phone.primary){
+      this.contact.phones.forEach((phoneLs)=>{
+        if(phoneLs.number !== phone.number){
+          phoneLs.primary = false;
+        }
+      });
+    }
   }
 
 }
 
-const phones: Phone[] = [{
-  number: '777 661-100',
-  type: 'Cell',
-  primary: true
-},
-  {
-    number: '888 662-8000',
-    type: 'Home',
-    primary: false
-  }];
