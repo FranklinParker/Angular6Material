@@ -11,17 +11,27 @@
     <mat-table #table [dataSource]="dataSource">
 
       <ng-container matColumnDef="number">
-        <mat-header-cell *matHeaderCellDef style="text-align:left;padding-left: 20px">Number</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef style="text-align:left;padding-left: 20px">Phone Number</mat-header-cell>
         <mat-cell *matCellDef="let element" style="text-align:left" >
-          <button mat-button (click)="edit(element)" color="primary">
-            {{element.number}}</button>
+          <input matInput
+                 placeholder="Enter Phone"
+                 name="phone"
+                 type="text"
+                 [(ngModel)]="element.number"
+                 required>
         </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="type">
         <mat-header-cell *matHeaderCellDef style="text-align:left"> Type</mat-header-cell>
         <mat-cell *matCellDef="let element" style="text-align:left">
-          {{element.type}}</mat-cell>
+          <input matInput
+                 placeholder="Enter Type of Phone"
+                 name="type"
+                 type="text"
+                 [(ngModel)]="element.type"
+                 required>
+        </mat-cell>
       </ng-container>
 
 
