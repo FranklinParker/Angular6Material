@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+var phoneSchema = new Schema({
+  number: String,
+  type: String,
+  primary: Boolean
+});
 
 const ContactSchema = new Schema({
   firstName: {
@@ -10,17 +15,11 @@ const ContactSchema = new Schema({
     type: String,
     required: [true, 'Last Name.']
   },
-  apartmentNumber: String,
-  phones: [
-    {
-      type: String,
-      number: String
-    }
-  ],
+  phones: [phoneSchema],
   email: String,
   description: String,
 
-});
+},{usePushEach: true});
 
 const Contact = mongoose.model('Contact', ContactSchema);
 
