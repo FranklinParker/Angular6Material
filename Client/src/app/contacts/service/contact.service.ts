@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs/Rx";
-import {map} from "rxjs/operators";
+import {map, shareReplay, take} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {User} from "../../auth/model/User";
@@ -24,10 +24,7 @@ export class ContactService {
     console.log('saving');
     return this.http.post(environment.url + 'api/contacts',
       contact)
-      .pipe(map(data => {
-        console.log('data', data);
-        return data;
-      }));
+      .pipe(shareReplay(),take(1),map(data => data));
 
   }
 
