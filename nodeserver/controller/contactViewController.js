@@ -47,7 +47,7 @@ const saveContact = (req, response) => {
   contact.save()
     .then((result) => {
       console.log('contact save result', result);
-      return response.status(100).json({
+      return response.status(200).json({
         success: true,
         result: result
       });
