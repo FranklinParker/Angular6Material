@@ -23,7 +23,13 @@ const viewAllContacts = (req, response) => {
       });
     });
 }
-
+/**
+ * save a contact
+ *
+ *
+ * @param req
+ * @param response
+ */
 const saveContact = (req, response) => {
   const contactData = req.body;
   const contact = new Contact({
