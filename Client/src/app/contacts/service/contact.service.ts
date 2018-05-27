@@ -28,4 +28,16 @@ export class ContactService {
 
   }
 
+  /**
+   * get all contacts
+   *
+   *
+   *
+   *
+   */
+  getContacts(){
+    return this.http.get(environment.url + 'api/contacts')
+      .pipe(map(data=>data));
+  }
+
 }

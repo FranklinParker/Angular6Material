@@ -5,10 +5,10 @@ import {ContactService} from "../../service/contact.service";
 
 @Component({
   selector: 'app-conact-add',
-  templateUrl: './contact-add.component.html',
-  styleUrls: ['./contact-add.component.scss']
+  templateUrl: './contact-add-edit.component.html',
+  styleUrls: ['./contact-add-edit.component.scss']
 })
-export class ContactAddComponent implements OnInit {
+export class ContactAddEditComponent implements OnInit {
 
   contact: Contact ={
     firstName: 'Joe',

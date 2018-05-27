@@ -5,7 +5,6 @@ const home = require('./home');
 
 function configureUnprotectedRoutes(app){
   app.get('/api/getuser/fromtoken',getUserFromToken );
-  app.get('/api/contacts', contactViewController.viewAllContacts);
    // app.use('/user', require('./users'));
 
 }
@@ -27,7 +26,9 @@ configureProtectedRoutes = (app)=>{
     app.use('/api',allowDelete, apiSecureController.secureApiRoutes);
     app.use('/api/home', home);
     app.post('/api/contacts',contactViewController.saveContact);
-   // app.use('/api/admin/course',allowDelete, course );
+    app.get('/api/contacts', contactViewController.viewAllContacts);
+
+  // app.use('/api/admin/course',allowDelete, course );
 
 }
 
