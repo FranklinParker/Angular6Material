@@ -19,6 +19,18 @@
         All contacts
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
+    <mat-card>
+      <mat-expansion-panel *ngFor="let contact of contacts">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{contact.firstName}} {{contact.lastName}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{contact.description}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-conact-add></app-conact-add>
+      </mat-expansion-panel>
+    </mat-card>
   </mat-expansion-panel>
 </mat-accordion>
