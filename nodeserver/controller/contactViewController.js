@@ -32,43 +32,56 @@ const viewAllContacts = (req, response) => {
  */
 const saveContact = (req, response) => {
   const contactData = req.body;
-  if(contactData._id){
-
-  }
-  const contact = new Contact({
-    firstName: contactData.firstName,
-    lastName: contactData.lastName,
-    email: contactData.email,
-    phones: [],
-    description: contactData.description
-
-  });
-  const phones = contactData.phones;
-  phones.forEach((phone) => {
-    const phoneRec = {
-      number: phone.number,
-      type: phone.type,
-      primary: phone.primary
-    };
-    contact.phones.push(phoneRec);
-
-  });
-  contact.save()
-    .then((result) => {
-      console.log('contact save result', result);
-      return response.status(200).json({
-        success: true,
-        result: result
+  if (contactData._id) {
+    console.log('id ' + contactData._id);
+    Contact.findByIdAndUpdate({_id: contactData._id}, contactData)
+      .then((result) => {
+        return response.status(200).json({
+          success: true,
+          result: result
+        })
+      })
+      .catch((err) => {
+        return response.status(500).json({
+          success: false,
+          error: err
+        });
       });
-    }, (e) => {
-      console.log('error saving contact', e);
-      return response.status(500).json({
-        success: false,
-        error: e
-      });
+  } else {
+    const contact = new Contact({
+      firstName: contactData.firstName,
+      lastName: contactData.lastName,
+      email: contactData.email,
+      phones: [],
+      description: contactData.description
+
     });
-}
+    const phones = contactData.phones;
+    phones.forEach((phone) => {
+      const phoneRec = {
+        number: phone.number,
+        type: phone.type,
+        primary: phone.primary
+      };
+      contact.phones.push(phoneRec);
 
+    });
+    contact.save()
+      .then((result) => {
+        console.log('contact save result', result);
+        return response.status(200).json({
+          success: true,
+          result: result
+        });
+      }, (e) => {
+        console.log('error saving contact', e);
+        return response.status(500).json({
+          success: false,
+          error: e
+        });
+      });
+  }
+}
 
 
 module.exports = {
