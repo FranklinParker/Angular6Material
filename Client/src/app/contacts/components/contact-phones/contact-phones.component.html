@@ -26,8 +26,9 @@
               <mat-header-cell *matHeaderCellDef style="text-align:left;padding-left: 20px">Phone Number
               </mat-header-cell>
               <mat-cell *matCellDef="let element" style="text-align:left">
-                <input matInput
-                       placeholder="Enter Phone"
+                <input placeholder="(123) 456-7890"
+                       [textMask]="{mask: mask}"
+                       matInput
                        name="phone"
                        type="text"
                        [(ngModel)]="element.number"

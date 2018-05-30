@@ -13,6 +13,7 @@ export class ContactPhonesComponent implements OnInit {
   dataSource = new MatTableDataSource<Phone>(null);
 
   displayedColumns = ['number', 'type', 'primary','delete'];
+  mask: any[] = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
   constructor() {
   }
