@@ -1,5 +1,6 @@
 export interface Phone {
-  type: string,
+  _id?: string;
+  type: string;
   number: string;
   primary: boolean;
 }

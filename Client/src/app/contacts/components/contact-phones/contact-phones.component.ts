@@ -12,7 +12,7 @@ export class ContactPhonesComponent implements OnInit {
   @Input('contact') contact:Contact;
   dataSource = new MatTableDataSource<Phone>(null);
 
-  displayedColumns = ['number', 'type', 'primary'];
+  displayedColumns = ['number', 'type', 'primary','delete'];
 
   constructor() {
   }
@@ -33,6 +33,11 @@ export class ContactPhonesComponent implements OnInit {
     this.dataSource.data = this.contact.phones;
   }
 
+  /**
+   * Marks a phone as primary
+   *
+   * @param {Phone} phone
+   */
   selectPrimary(phone:Phone){
     if(phone.primary){
       this.contact.phones.forEach((phoneLs)=>{
@@ -41,6 +46,23 @@ export class ContactPhonesComponent implements OnInit {
         }
       });
     }
+  }
+
+  /**
+   *
+   *
+   * @param {Phone} phone
+   */
+  deletePhone(phone: Phone){
+
+    const idx = this.contact.phones.indexOf(phone);
+
+    if(idx!=-1){
+      this.contact.phones.splice(idx,1);
+      this.dataSource.data = this.contact.phones;
+    }
+
+
   }
 
 }
