@@ -21,7 +21,6 @@ export class ContactService {
    * @returns {Observable<any>}
    */
   save(contact: Contact): Observable<any> {
-    console.log('saving');
     return this.http.post(environment.url + 'api/contacts',
       contact)
       .pipe(shareReplay(),take(1),map(data => data));
