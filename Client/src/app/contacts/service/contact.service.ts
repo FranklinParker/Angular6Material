@@ -21,7 +21,7 @@ export class ContactService {
    * @param {Contact} contact
    * @returns {Observable<any>}
    */
-  save(contact: Contact): Observable<any> {
+  save(contact: Contact): Observable<{success:boolean,result?:Contact}> {
     return this.http.post(environment.url + 'api/contacts',
       contact)
       .pipe(shareReplay(),take(1),

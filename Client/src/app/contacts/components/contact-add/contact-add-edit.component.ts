@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Contact} from "../../models/contact";
 import {NgForm} from "@angular/forms";
 import {ContactService} from "../../service/contact.service";
@@ -11,7 +11,9 @@ import {ContactService} from "../../service/contact.service";
 export class ContactAddEditComponent implements OnInit {
 
   @Input('contact') contact: Contact;
-  constructor(private contactService: ContactService) { }
+
+  constructor(private contactService: ContactService) {
+  }
 
   ngOnInit() {
   }
@@ -21,10 +23,9 @@ export class ContactAddEditComponent implements OnInit {
    *
    * @param {NgForm} contactForm
    */
-  onSubmit(contactForm:NgForm){
+  onSubmit(contactForm: NgForm) {
     this.contactService.save(this.contact)
-      .subscribe((result)=>{
-        console.log('saved contact', result);
+      .subscribe((result: { success: boolean, result?: Contact }) => {
       })
   }
 
