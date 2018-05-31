@@ -39,6 +39,18 @@
                required>
         <mat-error *ngIf="emailField.hasError('required')">Email is required</mat-error>
       </mat-form-field>
+      <mat-form-field>
+        <textarea matInput
+                  placeholder="Enter Contact Description"
+                  name="description"
+                  [(ngModel)]="contact.description"
+                  #descriptionField="ngModel"
+                  required>
+        </textarea>
+        <mat-error *ngIf="descriptionField.hasError('required')">
+          Description is required
+        </mat-error>
+      </mat-form-field>
       <mat-card>
         <app-contact-phones [contact]="contact"></app-contact-phones>
       </mat-card>
@@ -59,18 +71,6 @@
           </mat-expansion-panel>
         </mat-accordion>
       </mat-card>
-      <mat-form-field>
-        <textarea matInput
-                  placeholder="Enter Contact Description"
-                  name="description"
-                  [(ngModel)]="contact.description"
-                  #descriptionField="ngModel"
-                  required>
-        </textarea>
-        <mat-error *ngIf="descriptionField.hasError('required')">
-          Description is required
-        </mat-error>
-      </mat-form-field>
       <button type="submit"
               mat-raised-button
               [disabled]="contactForm.invalid">Submit
