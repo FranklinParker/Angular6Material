@@ -42,6 +42,21 @@
       <mat-card>
         <app-contact-phones [contact]="contact"></app-contact-phones>
       </mat-card>
+      <mat-card>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Contact History
+              </mat-panel-title>
+              <mat-panel-description>
+                View
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <button type="button" mat-stroked-button>Add New History</button>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-card>
       <mat-form-field>
         <textarea matInput
                   placeholder="Enter Contact Description"
