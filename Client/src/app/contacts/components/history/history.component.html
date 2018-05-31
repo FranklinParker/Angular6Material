@@ -4,6 +4,32 @@
   <mat-card-header>
     <h5>{{header}}</h5>
   </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit(contactHistoryForm)"
+          #contactHistoryForm="ngForm"
+          fxLayout="column"
+          fxLayoutAlign="center center"
+          fxLayoutGap="10px">
+
+      <mat-form-field>
+        <textarea matInput
+                  placeholder="Enter  Description"
+                  name="description"
+                  [(ngModel)]="contactHistory.description"
+                  #descriptionField="ngModel"
+                  required>
+        </textarea>
+        <mat-error *ngIf="descriptionField.hasError('required')">
+          Description is required
+        </mat-error>
+      </mat-form-field>
+      <button type="submit"
+              mat-raised-button
+              [disabled]="contactHistoryForm.invalid">
+        <mat-icon>forward</mat-icon>
+      </button>
+      <button type="button" mat-button (click)="onClose()">Close</button>
+    </form>
+  </mat-card-content>
 </mat-card>
 
-<button mat-button (click)="onClose()">Close</button>

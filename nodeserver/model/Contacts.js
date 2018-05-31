@@ -18,7 +18,7 @@ const invoiceLineSchema = new Schema({
 const historySchema = new Schema({
   date: Date,
   description: String,
-  invoice: invoiceLineSchema
+  invoiceLines: [invoiceLineSchema]
 });
 
 
