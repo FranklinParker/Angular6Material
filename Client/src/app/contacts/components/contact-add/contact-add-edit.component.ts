@@ -10,7 +10,7 @@ import {MatSnackBar} from "@angular/material";
   styleUrls: ['./contact-add-edit.component.scss']
 })
 export class ContactAddEditComponent implements OnInit {
-
+  @Input('addEditHeader') addEditHeader: string;
   @Input('contact') contact: Contact;
 
   constructor(private contactService: ContactService,

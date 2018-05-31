@@ -1,10 +1,27 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-var phoneSchema = new Schema({
+
+
+const phoneSchema = new Schema({
   number: String,
   type: String,
   primary: Boolean
 });
+
+const invoiceLineSchema = new Schema({
+  amount: Number,
+  itemDescription: String
+});
+
+
+
+const historySchema = new Schema({
+  date: Date,
+  description: String,
+  invoice: invoiceLineSchema
+});
+
+
 
 const ContactSchema = new Schema({
   firstName: {
@@ -16,6 +33,7 @@ const ContactSchema = new Schema({
     required: [true, 'Last Name.']
   },
   phones: [phoneSchema],
+  history: [historySchema],
   email: String,
   description: String,
 

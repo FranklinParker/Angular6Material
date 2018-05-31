@@ -8,7 +8,8 @@
         Enter Contact Info
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <app-conact-add [contact]="contact"></app-conact-add>
+    <app-conact-add [contact]="contact"
+                    [addEditHeader]="'Add Contact'"></app-conact-add>
   </mat-expansion-panel>
   <mat-expansion-panel>
     <mat-expansion-panel-header>
@@ -29,7 +30,8 @@
             {{contact.description}}
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <app-conact-add [contact]="contact"></app-conact-add>
+        <app-conact-add [contact]="contact"
+                        [addEditHeader]="'Edit Contact'"></app-conact-add>
       </mat-expansion-panel>
     </mat-accordion>
   </mat-expansion-panel>
