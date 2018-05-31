@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {
-  MatButtonModule, MatCardModule,
+  MatButtonModule,
+  MatCardModule,
   MatCheckboxModule,
   MatDialogModule,
   MatFormFieldModule,
@@ -13,7 +14,10 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatExpansionModule,
-  MatTableModule, MatBottomSheet, MatBottomSheetModule
+  MatTableModule,
+  MatBottomSheetModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 
 @NgModule({
@@ -33,7 +37,9 @@ import {
     MatExpansionModule,
     MatTableModule,
     MatSnackBarModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     MatListModule,
@@ -51,7 +57,9 @@ import {
     MatExpansionModule,
     MatTableModule,
     MatSnackBarModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 
   ],
   declarations: []
