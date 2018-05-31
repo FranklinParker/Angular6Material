@@ -2,7 +2,8 @@ import {Component, OnInit, Input} from '@angular/core';
 import {Contact} from "../../models/contact";
 import {NgForm} from "@angular/forms";
 import {ContactService} from "../../service/contact.service";
-import {MatSnackBar} from "@angular/material";
+import {MatDialog, MatSnackBar} from "@angular/material";
+import {HistoryComponent} from "../history/history.component";
 
 @Component({
   selector: 'app-conact-add',
@@ -14,10 +15,27 @@ export class ContactAddEditComponent implements OnInit {
   @Input('contact') contact: Contact;
 
   constructor(private contactService: ContactService,
-              public snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private dialog: MatDialog ) {
   }
 
   ngOnInit() {
+  }
+
+  /**
+   *
+   *
+   */
+
+  addNewHistory(){
+    let dialogRef = this.dialog.open(HistoryComponent, {
+      width: '250px',
+      data: { }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   /**
