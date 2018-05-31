@@ -2,7 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 import {Contact} from "../../models/contact";
 import {NgForm} from "@angular/forms";
 import {ContactService} from "../../service/contact.service";
-import {MatBottomSheet, MatSnackBar} from "@angular/material";
+import {MatSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-conact-add',
@@ -14,8 +14,7 @@ export class ContactAddEditComponent implements OnInit {
   @Input('contact') contact: Contact;
 
   constructor(private contactService: ContactService,
-              private snackBar: MatSnackBar,
-              private bottomSheet: MatBottomSheet) {
+              private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
