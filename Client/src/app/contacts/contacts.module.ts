@@ -4,7 +4,7 @@ import { ContactMainComponent } from './components/contact-main/contact-main.com
 import {SharedModule} from "../shared/shared.module";
 import { ContactAddEditComponent } from './components/contact-add/contact-add-edit.component';
 import { ContactPhonesComponent } from './components/contact-phones/contact-phones.component';
-import { HistoryComponent } from './components/history/history.component';
+import { AddEditContactHistoryComponent } from './components/add-edit-contact-history/add-edit-contact-history.component';
 
 @NgModule({
   imports: [
@@ -15,13 +15,13 @@ import { HistoryComponent } from './components/history/history.component';
     ContactMainComponent,
     ContactAddEditComponent,
     ContactPhonesComponent,
-    HistoryComponent
+    AddEditContactHistoryComponent
   ],
   exports: [
     ContactMainComponent
   ],
   entryComponents: [
-    HistoryComponent
+    AddEditContactHistoryComponent
   ]
 })
 export class ContactsModule { }

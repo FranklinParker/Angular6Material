@@ -5,10 +5,10 @@ import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-history',
-  templateUrl: './history.component.html',
-  styleUrls: ['./history.component.scss']
+  templateUrl: './add-edit-contact-history.component.html',
+  styleUrls: ['./add-edit-contact-history.component.scss']
 })
-export class HistoryComponent implements OnInit {
+export class AddEditContactHistoryComponent implements OnInit {
   header: string;
   contactHistory: ContactHistory;
   constructor(public bottomSheetRef: MatBottomSheetRef<any>,
@@ -20,13 +20,21 @@ export class HistoryComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * close the contact
+   *
+   */
   onClose(){
-    this.bottomSheetRef.dismiss({});
+    this.bottomSheetRef.dismiss({contactHistory:null});
   }
 
+  /**
+   * save the contactHistory
+   *
+   * @param {NgForm} contactHistoryForm
+   */
   onSubmit(contactHistoryForm: NgForm){
-    alert('submit');
-
+    this.bottomSheetRef.dismiss({conactHistory: this.contactHistory});
   }
 
 }

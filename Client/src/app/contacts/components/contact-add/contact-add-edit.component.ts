@@ -3,7 +3,7 @@ import {Contact} from "../../models/contact";
 import {NgForm} from "@angular/forms";
 import {ContactService} from "../../service/contact.service";
 import {MatBottomSheet, MatSnackBar} from "@angular/material";
-import {HistoryComponent} from "../history/history.component";
+import {AddEditContactHistoryComponent} from "../add-edit-contact-history/add-edit-contact-history.component";
 import {ContactHistory} from "../../models/ContactHistory";
 
 @Component({
@@ -24,19 +24,19 @@ export class ContactAddEditComponent implements OnInit {
   }
 
   /**
-   * add a new contact history
+   * add a new contact add-edit-contact-history
    *
    */
 
   addNewHistory() {
-    let bottomSheetRef = this.bottomSheet.open(HistoryComponent, {
+    let bottomSheetRef = this.bottomSheet.open(AddEditContactHistoryComponent, {
       data: {header: 'Add New History', contactHistory: this.getBlankContactHistory()},
       disableClose: true,
 
     });
 
     bottomSheetRef.afterDismissed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The dialog was closed', result);
     });
   }
 
@@ -62,7 +62,7 @@ export class ContactAddEditComponent implements OnInit {
   }
 
   /**
-   * creates a blank contact history for adding a new contact history
+   * creates a blank contact add-edit-contact-history for adding a new contact add-edit-contact-history
    *
    * @returns {ContactHistory}
    */
