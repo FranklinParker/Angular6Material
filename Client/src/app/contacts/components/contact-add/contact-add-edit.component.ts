@@ -31,7 +31,8 @@ export class ContactAddEditComponent implements OnInit {
   addNewHistory() {
     let bottomSheetRef = this.bottomSheet.open(HistoryComponent, {
       data: {header: 'Add New History', contactHistory: this.getBlankContactHistory()},
-      disableClose: true
+      disableClose: true,
+
     });
 
     bottomSheetRef.afterDismissed().subscribe(result => {
