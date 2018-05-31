@@ -1,6 +1,6 @@
-<mat-card >
+<mat-card>
   <mat-card-header fxLayout="column"
-                   fxLayoutAlign="center center" >
+                   fxLayoutAlign="center center">
     <h4 class="text-center">Add Contact</h4>
   </mat-card-header>
   <mat-card-content>
@@ -42,7 +42,7 @@
       <mat-card>
         <app-contact-phones [contact]="contact"></app-contact-phones>
       </mat-card>
-      <mat-form-field >
+      <mat-form-field>
         <textarea matInput
                   placeholder="Enter Contact Description"
                   name="description"
@@ -51,7 +51,8 @@
                   required>
         </textarea>
         <mat-error *ngIf="descriptionField.hasError('required')">
-          Description is required</mat-error>
+          Description is required
+        </mat-error>
       </mat-form-field>
       <button type="submit"
               mat-raised-button

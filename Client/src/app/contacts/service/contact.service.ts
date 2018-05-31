@@ -21,11 +21,11 @@ export class ContactService {
    * @param {Contact} contact
    * @returns {Observable<any>}
    */
-  save(contact: Contact): Observable<{success:boolean,result?:Contact}> {
+  save(contact: Contact): Observable<{success:boolean,result?:Contact,error?:string}> {
     return this.http.post(environment.url + 'api/contacts',
       contact)
       .pipe(shareReplay(),take(1),
-        map((data:{success:boolean,result?:Contact}) => {
+        map((data:{success:boolean,result?:Contact,error?:string}) => {
         if(data.success){
           this.contactAddedUpdate.next(data.result);
         }

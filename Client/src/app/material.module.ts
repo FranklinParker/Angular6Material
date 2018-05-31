@@ -25,14 +25,14 @@ import {
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSnackBarModule,
     MatTabsModule,
     MatSelectModule,
     MatCheckboxModule,
     MatDialogModule,
     MatCardModule,
     MatExpansionModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule
   ],
   exports: [
     MatListModule,
@@ -42,14 +42,14 @@ import {
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSnackBarModule,
     MatTabsModule,
     MatSelectModule,
     MatCheckboxModule,
     MatDialogModule,
     MatCardModule,
     MatExpansionModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule
 
   ],
   declarations: []
