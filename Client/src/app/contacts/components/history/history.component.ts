@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
+import {MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef} from "@angular/material";
 
 @Component({
   selector: 'app-history',
@@ -7,15 +7,17 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
-
-  constructor(public dialogRef: MatDialogRef<any>,
-              @Inject(MAT_DIALOG_DATA) public data: any) { }
+  header: string;
+  constructor(public bottomSheetRef: MatBottomSheetRef<any>,
+              @Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {
+    this.header = data.header;
+  }
 
   ngOnInit() {
   }
 
   onClose(){
-    this.dialogRef.close({});
+    this.bottomSheetRef.dismiss({});
   }
 
 }

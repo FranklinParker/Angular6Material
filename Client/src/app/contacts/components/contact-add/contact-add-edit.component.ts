@@ -2,7 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 import {Contact} from "../../models/contact";
 import {NgForm} from "@angular/forms";
 import {ContactService} from "../../service/contact.service";
-import {MatDialog, MatSnackBar} from "@angular/material";
+import {MatBottomSheet, MatSnackBar} from "@angular/material";
 import {HistoryComponent} from "../history/history.component";
 
 @Component({
@@ -16,7 +16,7 @@ export class ContactAddEditComponent implements OnInit {
 
   constructor(private contactService: ContactService,
               private snackBar: MatSnackBar,
-              private dialog: MatDialog ) {
+              private bottomSheet: MatBottomSheet ) {
   }
 
   ngOnInit() {
@@ -28,13 +28,12 @@ export class ContactAddEditComponent implements OnInit {
    */
 
   addNewHistory(){
-    let dialogRef = this.dialog.open(HistoryComponent, {
-      width: '250px',
-      data: { },
+    let bottomSheetRef = this.bottomSheet.open(HistoryComponent,{
+      data: { header:'Add New History'  },
       disableClose: true
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    bottomSheetRef.afterDismissed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
