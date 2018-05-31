@@ -30,7 +30,8 @@ export class ContactAddEditComponent implements OnInit {
   addNewHistory(){
     let dialogRef = this.dialog.open(HistoryComponent, {
       width: '250px',
-      data: { }
+      data: { },
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
