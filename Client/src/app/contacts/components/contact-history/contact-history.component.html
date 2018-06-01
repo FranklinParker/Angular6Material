@@ -16,22 +16,31 @@
             (click)="addNewHistory()">Add New History</button>
     <div class="card m-1">
       <div class="card-header">
-        <div class="row m-2">
-          <div class="col-7 col-header">
-            Contact Decription
+        <div class="row m-2  row-header">
+          <div class="col-6 col-header">
+            Contact Description
           </div>
-          <div class="col-5 col-header">
+          <div class="col-3 col-header">
             Contact Date
+          </div>
+          <div class="col-3 col-header">
+           View/Edit
           </div>
         </div>
       </div>
      <div class="card-body">
        <div class="row m-2" *ngFor="let contactHistory of contact.history">
-         <div class="col-7">
+         <div class="col-6">
            {{contactHistory.description}}
          </div>
-         <div class="col-5">
+         <div class="col-3">
            {{contactHistory.date |date}}
+         </div>
+         <div class="col-3">
+           <button type="button" mat-button>
+             View/edit
+             <mat-icon>forward</mat-icon>
+           </button>
          </div>
        </div>
      </div>
