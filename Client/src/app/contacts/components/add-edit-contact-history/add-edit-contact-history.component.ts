@@ -21,10 +21,11 @@ export class AddEditContactHistoryComponent implements OnInit {
               @Inject(MAT_BOTTOM_SHEET_DATA) public data: any) {
     this.header = data.header;
     this.contactHistory = data.contactHistory;
-    this.dataSource.data = this.contactHistory.invoiceLines;
   }
 
   ngOnInit() {
+    this.dataSource.data = this.contactHistory.invoiceLines;
+
   }
 
   /**
