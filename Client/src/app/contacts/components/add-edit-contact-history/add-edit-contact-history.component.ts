@@ -14,7 +14,7 @@ export class AddEditContactHistoryComponent implements OnInit {
   header: string;
   contactHistory: ContactHistory;
   dataSource = new MatTableDataSource<InvoiceLine>(null);
-  displayedColumns = ['amount','itemDescription'];
+  displayedColumns = ['amount','itemDescription','delete'];
 
 
   constructor(public bottomSheetRef: MatBottomSheetRef<any>,
@@ -40,10 +40,11 @@ export class AddEditContactHistoryComponent implements OnInit {
     } else{
       this.contactHistory.invoiceLines.push({
         amount:0,
-        itemDescription: 'test'
+        itemDescription: 'Number two'
       });
     }
     this.dataSource.data = this.contactHistory.invoiceLines;
+
 
   }
   deleteItem(invoiceLine:InvoiceLine){
