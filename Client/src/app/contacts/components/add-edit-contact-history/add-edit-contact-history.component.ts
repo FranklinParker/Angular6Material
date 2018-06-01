@@ -34,7 +34,7 @@ export class AddEditContactHistoryComponent implements OnInit {
    * @param {NgForm} contactHistoryForm
    */
   onSubmit(contactHistoryForm: NgForm){
-    this.bottomSheetRef.dismiss({conactHistory: this.contactHistory});
+    this.bottomSheetRef.dismiss({contactHistory: this.contactHistory});
   }
 
 }

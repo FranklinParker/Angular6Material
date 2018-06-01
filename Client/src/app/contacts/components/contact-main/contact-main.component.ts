@@ -55,7 +55,8 @@ export class ContactMainComponent implements OnInit {
           type: 'Home',
           primary: false
         }
-      ]
+      ],
+      history: []
     };
   }
 }

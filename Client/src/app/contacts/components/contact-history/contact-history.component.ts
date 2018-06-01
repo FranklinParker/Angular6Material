@@ -4,6 +4,7 @@ import {MatBottomSheet} from "@angular/material";
 import {AddEditContactHistoryComponent} from "../add-edit-contact-history/add-edit-contact-history.component";
 import {ContactHistory} from "../../models/ContactHistory";
 
+
 @Component({
   selector: 'app-contact-history',
   templateUrl: './contact-history.component.html',
@@ -32,6 +33,10 @@ export class ContactHistoryComponent implements OnInit {
 
     bottomSheetRef.afterDismissed().subscribe(result => {
       console.log('The dialog was closed', result);
+      if(result.contactHistory){
+        this.contact.history.push(result.contactHistory);
+
+      }
     });
   }
   /**

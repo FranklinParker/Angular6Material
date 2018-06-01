@@ -5,7 +5,7 @@ import {ContactService} from "../../service/contact.service";
 import {MatSnackBar} from "@angular/material";
 
 @Component({
-  selector: 'app-conact-add',
+  selector: 'app-contact-add',
   templateUrl: './contact-add-edit.component.html',
   styleUrls: ['./contact-add-edit.component.scss']
 })

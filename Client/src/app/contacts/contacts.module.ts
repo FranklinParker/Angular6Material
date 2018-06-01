@@ -6,11 +6,13 @@ import { ContactAddEditComponent } from './components/contact-add/contact-add-ed
 import { ContactPhonesComponent } from './components/contact-phones/contact-phones.component';
 import { AddEditContactHistoryComponent } from './components/add-edit-contact-history/add-edit-contact-history.component';
 import { ContactHistoryComponent } from './components/contact-history/contact-history.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    NgbModule
   ],
   declarations: [
     ContactMainComponent,

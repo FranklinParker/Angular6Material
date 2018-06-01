@@ -8,8 +8,17 @@
         View
       </mat-panel-description>
     </mat-expansion-panel-header>
-
     <button type="button" mat-stroked-button
             (click)="addNewHistory()">Add New History</button>
+    <div class="container-fluid">
+      <div class="row" *ngFor="let contactHistory of contact.history">
+        <div class="col-7">
+          {{contactHistory.description}}
+        </div>
+        <div class="col-5">
+          {{contactHistory.date |date}}
+        </div>
+      </div>
+    </div>
   </mat-expansion-panel>
 </mat-accordion>
