@@ -1,9 +1,9 @@
+import {InvoiceLine} from "./InvoiceLine";
+
 export interface ContactHistory{
   date?: Date,
   description?: string,
-  invoiceLines?: [{
-    amount?:number,
-    itemDescription?: string
-  }]
+  invoiceLines?: [InvoiceLine]
+
 }
 
