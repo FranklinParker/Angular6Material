@@ -20,6 +20,26 @@ export class ContactHistoryComponent implements OnInit {
   }
 
   /**
+   * view or edit an existing contact history
+   *
+   * @param {ContactHistory} contactHistory
+   */
+  viewEdit(contactHistory: ContactHistory){
+    let bottomSheetRef = this.bottomSheet.open(AddEditContactHistoryComponent, {
+      data: {header: 'Edit Contact History', contactHistory: contactHistory},
+      disableClose: true,
+
+    });
+
+    bottomSheetRef.afterDismissed().subscribe(result => {
+      console.log('The dialog was closed', result);
+      if(result.contactHistory){
+
+      }
+    });
+  }
+
+  /**
    * add a new contact add-edit-contact-history
    *
    */

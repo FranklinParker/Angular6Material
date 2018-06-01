@@ -37,7 +37,7 @@
            {{contactHistory.date |date}}
          </div>
          <div class="col-3">
-           <button type="button" mat-button>
+           <button type="button" mat-button (click)="viewEdit(contactHistory)">
              View/edit
              <mat-icon>forward</mat-icon>
            </button>
