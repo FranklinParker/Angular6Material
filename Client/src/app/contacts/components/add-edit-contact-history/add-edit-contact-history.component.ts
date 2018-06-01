@@ -2,7 +2,6 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef, MatTableDataSource} from "@angular/material";
 import {ContactHistory} from "../../models/ContactHistory";
 import {NgForm} from "@angular/forms";
-import {Phone} from "../../models/phone";
 import {InvoiceLine} from "../../models/InvoiceLine";
 
 @Component({
