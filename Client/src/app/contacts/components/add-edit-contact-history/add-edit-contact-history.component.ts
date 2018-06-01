@@ -27,11 +27,24 @@ export class AddEditContactHistoryComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * add a new invoice line
+   *
+   */
   addInvoiceLine(){
-    this.contactHistory.invoiceLines.push({
-      amount:0,
-      itemDescription: ''
-    });
+    if(!this.contactHistory.invoiceLines){
+      this.contactHistory.invoiceLines = [{
+        amount:0,
+        itemDescription: 'test'
+      }];
+    } else{
+      this.contactHistory.invoiceLines.push({
+        amount:0,
+        itemDescription: 'test'
+      });
+    }
+    this.dataSource.data = this.contactHistory.invoiceLines;
+
   }
   deleteItem(invoiceLine:InvoiceLine){
 

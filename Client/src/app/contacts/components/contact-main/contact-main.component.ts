@@ -56,11 +56,7 @@ export class ContactMainComponent implements OnInit {
           primary: false
         }
       ],
-      history: [{
-        invoiceLines:[{
-
-        }]
-      }]
+      history: []
     };
   }
 }
