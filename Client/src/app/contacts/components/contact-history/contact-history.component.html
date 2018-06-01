@@ -10,15 +10,27 @@
     </mat-expansion-panel-header>
     <button type="button" mat-stroked-button
             (click)="addNewHistory()">Add New History</button>
-    <div class="container-fluid">
-      <div class="row" *ngFor="let contactHistory of contact.history">
-        <div class="col-7">
-          {{contactHistory.description}}
-        </div>
-        <div class="col-5">
-          {{contactHistory.date |date}}
+    <div class="card m-1">
+      <div class="card-header">
+        <div class="row m-2">
+          <div class="col-7">
+            Contact Decription
+          </div>
+          <div class="col-5">
+            Contact Date
+          </div>
         </div>
       </div>
+     <div class="card-body">
+       <div class="row m-2" *ngFor="let contactHistory of contact.history">
+         <div class="col-7">
+           {{contactHistory.description}}
+         </div>
+         <div class="col-5">
+           {{contactHistory.date |date}}
+         </div>
+       </div>
+     </div>
     </div>
   </mat-expansion-panel>
 </mat-accordion>
