@@ -1,22 +1,26 @@
 <mat-accordion>
   <mat-expansion-panel>
     <mat-expansion-panel-header>
-      <mat-panel-title>
-        Contact History
-      </mat-panel-title>
-      <mat-panel-description>
-        View
-      </mat-panel-description>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-9">
+            Contact History
+          </div>
+          <div class="col-3">
+            View/Edit
+          </div>
+        </div>
+      </div>
     </mat-expansion-panel-header>
     <button type="button" mat-stroked-button
             (click)="addNewHistory()">Add New History</button>
     <div class="card m-1">
       <div class="card-header">
         <div class="row m-2">
-          <div class="col-7">
+          <div class="col-7 col-header">
             Contact Decription
           </div>
-          <div class="col-5">
+          <div class="col-5 col-header">
             Contact Date
           </div>
         </div>
