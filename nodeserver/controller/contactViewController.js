@@ -48,24 +48,8 @@ const saveContact = (req, response) => {
         });
       });
   } else {
-    const contact = new Contact({
-      firstName: contactData.firstName,
-      lastName: contactData.lastName,
-      email: contactData.email,
-      phones: [],
-      description: contactData.description
+    const contact = new Contact(contactData);
 
-    });
-    const phones = contactData.phones;
-    phones.forEach((phone) => {
-      const phoneRec = {
-        number: phone.number,
-        type: phone.type,
-        primary: phone.primary
-      };
-      contact.phones.push(phoneRec);
-
-    });
     contact.save()
       .then((result) => {
         console.log('contact save result', result);
