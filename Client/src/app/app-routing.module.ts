@@ -5,6 +5,7 @@ import {RegistrationComponent} from "./user/components/registration/registration
 import {HomeComponent} from "./core/components/home/home.component";
 import { AuthGuard } from "./core/guard/auth.guard";
 import {ContactMainComponent} from "./contacts/components/contact-main/contact-main.component";
+import {TestComponent} from "./test/test.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
     path: 'contacts',
     component: ContactMainComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path:'test',
+    component: TestComponent
   }
 ];
 

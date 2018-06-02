@@ -16,6 +16,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {TokenInterceptor} from "./auth/service/token.interceptor";
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import {ContactsModule} from "./contacts/contacts.module";
+import { TestComponent } from './test/test.component';
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -24,7 +26,8 @@ import {ContactsModule} from "./contacts/contacts.module";
     AppComponent,
     SideBarComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import {ContactsModule} from "./contacts/contacts.module";
     HttpClientModule,
     FlexLayoutModule,
     UserModule,
+    FormsModule,
     NgbModule.forRoot(),
     ContactsModule
   ],
