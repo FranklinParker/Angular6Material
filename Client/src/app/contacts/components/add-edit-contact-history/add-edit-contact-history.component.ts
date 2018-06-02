@@ -47,8 +47,20 @@ export class AddEditContactHistoryComponent implements OnInit {
 
 
   }
-  deleteItem(invoiceLine:InvoiceLine){
 
+  /**
+   * delete invoice line
+   *
+   *
+   * @param {InvoiceLine} invoiceLine
+   */
+  deleteItem(invoiceLine:InvoiceLine){
+    const idx = this.contactHistory.invoiceLines.indexOf(invoiceLine);
+
+    if(idx!=-1){
+      this.contactHistory.invoiceLines.splice(idx,1);
+      this.dataSource.data = this.contactHistory.invoiceLines;
+    }
   }
 
   /**
